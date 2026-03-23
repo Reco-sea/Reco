@@ -1,1 +1,62 @@
 # Reco
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简介 Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; }
+        .container { background: #fff; margin: 80px auto; max-width: 600px; padding: 32px; border-radius: 10px; box-shadow: 0 2px 10px #ccc; }
+        h1 { color: #2196f3; }
+        ul { margin-top: 16px; }
+        .switcher { position: absolute; top: 20px; right: 40px; }
+        button { padding: 4px 10px; margin-left: 6px; }
+    </style>
+</head>
+<body>
+    <div class="switcher">
+        <button onclick="setLang('zh')">中文</button>
+        <button onclick="setLang('en')">English</button>
+    </div>
+    <div class="container">
+        <!-- Chinese Version -->
+        <div id="zh" style="display:none;">
+            <h1>你好，我是黄之睿可</h1>
+            <p>自我介绍：我来自华东政法大学商学院金融专业24004班，幽默随和，正在学习各种技能~</p>
+            <ul>
+                <li>技能：飞盘,Python,英语 ...</li>
+                <li>爱好：摄影,音乐,音乐剧 ...</li>
+                <li>联系方式：3537986832@qq.com</li>
+                <li><a href="https://github.com/Reco-sea">我的GitHub</a></li>
+            </ul>
+        </div>
+        <!-- English Version -->
+        <div id="en" style="display:none;">
+            <h1>Hello, I'm Huang Zhiruike.</h1>
+            <p>About me:I am from Class 24004, Finance Major, School of Business, East China University of Political Science and Law. I have a humorous and easy-going personality, and I am currently learning various new skills.</p>
+            <ul>
+                <li>Skills:Ultimate Frisbee, Python, English ...</li>
+                <li>Hobbies:Photography, Music, Musicals ...</li>
+                <li>Contact: 3537986832@qq.com</li>
+                <li><a href="https://github.com/Reco-sea">My GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // 默认根据浏览器语言显示
+        function getLang() {
+            let lang = navigator.language || navigator.userLanguage;
+            if(lang.startsWith('zh')) return 'zh';
+            return 'en';
+        }
+        function setLang(lang) {
+            document.getElementById('zh').style.display = lang === 'zh' ? 'block' : 'none';
+            document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+        }
+        // 页面加载时自动切换
+        window.onload = function() {
+            setLang(getLang());
+        };
+    </script>
+</body>
+</html>
